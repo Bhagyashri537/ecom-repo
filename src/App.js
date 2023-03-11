@@ -1,12 +1,15 @@
 
 import './App.css';
+import Header from "./Components/Layout/Header";
+import Product from "./Components/Products/Product";
+
 
 function App() {
   return (
-    <div className="App">
-      <h2>hello</h2>
+    <div>
+      <Header />
+      <Product />
     </div>
   );
 }
-
 export default App;
