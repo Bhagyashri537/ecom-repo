@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Button } from 'react-bootstrap';
+import CartContext from '../store/cart-context';
 
 
 const HeaderButton = (props) => {
-  const [itemCount, setItemCount] = useState(0);
+  const cartCtx = useContext(CartContext);
+  const numOfItems = cartCtx.items.reduce((curVal, item)=>{
+    return (curVal + item.quantity);
+  }, 0);
   return (
    <>
-    <Button>Cart {itemCount}</Button>
+    <Button onClick={props.onClick}>Cart {numOfItems}</Button>
    </>
   );
 };
-
 export default HeaderButton;

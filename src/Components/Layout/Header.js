@@ -1,7 +1,8 @@
+import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import HeaderButton from './HeaderButton';
 
-const Header = ({ itemCount }) => {
+const Header = (props) => {
   return (
     <>
       <Navbar fixed="top" bg="dark" variant="dark" className='justify-content-center'>
@@ -11,7 +12,7 @@ const Header = ({ itemCount }) => {
           <Nav.Link href="#store">Store</Nav.Link>
           <Nav.Link href="#about">About</Nav.Link>
         </Nav>
-        <HeaderButton itemCount={itemCount} />
+        <HeaderButton onClick={props.onShow}/>
       </Navbar>
       <div
         style={{
@@ -27,5 +28,4 @@ const Header = ({ itemCount }) => {
     </>
   );
 };
-
 export default Header;
