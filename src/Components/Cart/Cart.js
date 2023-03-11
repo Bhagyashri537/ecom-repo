@@ -5,16 +5,19 @@ import classes from './Cart.module.css';
 
 const Cart =(props) => {
     const cartCtx = useContext(CartContext);
+    const totalAmoount = cartCtx.totalAmount;
+    const cartItemRemoveHandler = (id) => {
+        console.log(id);
+        cartCtx.removeItem(id);
+      };
     const CartItems = <ul className={classes['cart-items']}>
-        {cartCtx.items.map((item)=>
-        <li>{item.title} {item.price} {item.quantity}
-        <button>Remove</button>
+       {cartCtx.items.map((item)=>
+        <li>Name:{item.title}  ${item.price}  Qtt:{item.quantity} 
+        <span></span><button onClick={cartItemRemoveHandler.bind(null, item.id)}>Remove</button>
         </li>)}
     </ul>
 
-    const totalAmoount = cartCtx.items.reduce((curVal,item)=>{
-        return curVal+item.price;
-    },0);
+   
    return <Modal onClose={props.onClose}>
    {CartItems}
     <div className={classes.total}>

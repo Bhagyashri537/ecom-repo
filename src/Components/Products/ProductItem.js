@@ -7,7 +7,7 @@ const ProductItem = (props) => {
     const cartCtx = useContext(CartContext);
     const submitHandler = event => {
         event.preventDefault();
-        console.log({...props})
+       
 
         cartCtx.addItem({
             id:props.id,
