@@ -1,6 +1,6 @@
 import React from "react";
 import ProductItem from "./ProductItem";
-import { Container, Row, Col} from "react-bootstrap";
+import { Container, Row} from "react-bootstrap";
 const DummyData = [
     {
         id:'p1',
@@ -34,13 +34,13 @@ const DummyData = [
 
 const AvailableProduct = (props)=> {
     return (
-        <Container className="mt-3">
-            <Row xs={1} md={2} className="g-10">
+        <Container>
+            <Row>
                 {
                     DummyData.map((item)=>
-                        <Col lg={6} className ="margin-auto" key={item.id}>
+                       
                             <ProductItem id={item.id} title={item.title} price={item.price} src={item.imageUrl} quantity={item.quantity} />
-                        </Col>
+                       
                     )
                 }
             </Row>

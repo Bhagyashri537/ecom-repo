@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { Card, Form, Button } from "react-bootstrap";
+import { Card, Form, Button, Col } from "react-bootstrap";
 import CartContext from "../store/cart-context";
+import { Link } from "react-router-dom";
 
 const ProductItem = (props) => {
     const price = `$${props.price}`
@@ -18,16 +19,15 @@ const ProductItem = (props) => {
 
     }
     return <>
-
-        <Card className="mt-3 mb-3">
-            <Card.Header className="p-4 text-center">
+       <Col lg={6} className ="justify-content-center margin-auto">
+        <Card className='mt-5' style={{width:'20rem'}}>
+            <Card.Title className="p-4 text-center">
                 <h1>{props.title}</h1>
-            </Card.Header>
+            </Card.Title>
+            <Link to={`/store/${props.id}`}><Card.Img variant="top" src={props.src}></Card.Img></Link>
             <Card.Body>
                 <Form>
-                    <Form.Group>
-                        <Card.Img src={props.src} />
-                    </Form.Group>
+                    
                     <Form.Group className="d-flex justify-content-between mt-3">
                         <span>{price}</span>
                         <Button onClick={submitHandler}>Add to Cart</Button>
@@ -35,6 +35,7 @@ const ProductItem = (props) => {
                 </Form>
             </Card.Body>
         </Card>
+        </Col>
     </>
 }
 export default ProductItem;

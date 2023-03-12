@@ -6,6 +6,7 @@ import Contact from '../Pages/Contact';
 import Home from '../Pages/Home';
 import About from '../Pages/About';
 import Product from "../Products/Product";
+import ProductPage from '../Products/ProductPage';
 
 
 const Header = (props) => {
@@ -52,6 +53,9 @@ const Header = (props) => {
             <Route path="/" exact>
               <Home />
             </Route>
+            <Route path="/store/:storeid">
+              <ProductPage key={props.product.id} product={props.product} />
+            </Route> 
       </Switch>
       </Router>
     </>
