@@ -19,7 +19,7 @@ export const AuthContextProvider=(props)=>{
     }
 
     const logoutHandler=()=>{
-        setToken("");
+        setToken(null);
         localStorage.removeItem('token')
     }
 

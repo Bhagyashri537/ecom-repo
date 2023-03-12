@@ -48,7 +48,7 @@ const Login = () => {
               localStorage.setItem('email' ,enteredEmail )
               authCtx.login(data.idToken)
               history.replace('/store')
-              alert("Log In Successful")
+             
           }else{
                console.log("Sign up Completed")
                alert("Sign Up Successful")
