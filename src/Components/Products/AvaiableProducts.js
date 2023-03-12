@@ -38,7 +38,7 @@ const AvailableProduct = (props)=> {
             <Row xs={1} md={2} className="g-10">
                 {
                     DummyData.map((item)=>
-                        <Col key={item.id}>
+                        <Col lg={6} className ="margin-auto" key={item.id}>
                             <ProductItem id={item.id} title={item.title} price={item.price} src={item.imageUrl} quantity={item.quantity} />
                         </Col>
                     )
