@@ -48,7 +48,7 @@ function App() {
   return (
     <CartProvider>
     {showCart && <Cart onClose={HideCartHandler}/>}
-      <Header product = {Dummy_Product} onShow={ShowCartHandler}/>
+      <Header  product = {Dummy_Product} onShow={ShowCartHandler}/>
       {/* <Product /> */}
       <Footer />
     </CartProvider>

@@ -3,12 +3,13 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/esm/Container';
 import { useHistory } from 'react-router-dom';
-import AuthContext from '../store/auth-context';
+
+import CartContext from '../store/cart-context';
 
 
 const Login = () => {
     const history =useHistory();
-      const authCtx = useContext(AuthContext)
+      const authCtx = useContext(CartContext)
       const emailInputRef = useRef();
       const passwordInputRef = useRef();
       console.log(authCtx.isLoggedIn)

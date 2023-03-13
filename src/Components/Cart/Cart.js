@@ -1,33 +1,28 @@
 import React, { useContext } from 'react';
-import Modal  from '../UI/Modal';
 import CartContext from '../store/cart-context';
 import classes from './Cart.module.css';
+import { Container, CloseButton } from 'react-bootstrap';
+import CartItem from './CartItem';
 
-const Cart =(props) => {
-    const cartCtx = useContext(CartContext);
-    const totalAmoount = cartCtx.totalAmount;
-    const cartItemRemoveHandler = (id) => {
-        console.log(id);
-        cartCtx.removeItem(id);
-      };
-    const CartItems = <ul className={classes['cart-items']}>
-       {cartCtx.items.map((item)=>
-        <li>Name:{item.title}  ${item.price}  Qtt:{item.quantity} 
-        <span></span><button onClick={cartItemRemoveHandler.bind(null, item.id)}>Remove</button>
-        </li>)}
-    </ul>
-
-   
-   return <Modal onClose={props.onClose}>
-   {CartItems}
-    <div className={classes.total}>
-        <span>Toatal Amount</span>
-        <span>${totalAmoount}</span>
-    </div>
-    <div className={classes.actions}>
-        <button className={classes['button--alt']} onClick={props.onClose}>Close</button>
-        <button className={classes.button}>Purchase</button>
-    </div>
-   </Modal>
-}
-export default Cart;
+export const Cart = (props) => {
+    const cartCtx = useContext(CartContext)
+  
+    return (
+      <Container className={classes.cart}>
+         <CloseButton onClick={props.onClose} />
+        <div className={classes['cart-main']}>
+          <div className={classes["cart-item"]}>ITEM</div>
+          <div className={classes["cart-price"]}>PRICE</div>
+          <div className={classes["cart-quantity"]}>QUANTITY</div>
+        </div>
+       {/* {console.log(cartCtx.items)} */}
+        {cartCtx.items.map(item=><CartItem key={item.id} prod={item} />)}
+  
+        <div style={{"fontWeight" : "bold"}}>{`Total : ${cartCtx.totalAmount}`}</div>
+  
+  
+    </Container>
+    );
+  };
+  
+  export default Cart
